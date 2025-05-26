@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRSP</title>
+  <style>
+
+        @media (max-width: 768px) {
+      #text1 {
+        font-size: 20px;
+        padding: 30px 15px;
+      }
+
+      #extra-line {
+        font-size: 28px;
+        margin-top: 40px;
+      }
+
+      .nav-invite {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+
+      .nav-button {
+        font-size: 18px;
+        padding: 12px 30px;
+      }
+
+      .heart {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #text1 {
+        font-size: 18px;
+        padding: 20px 10px;
+        line-height: 1.6;
+      }
+
+      #extra-line {
+        font-size: 24px;
+        margin-top: 30px;
+      }
+
+      .nav-invite {
+        font-size: 18px;
+      }
+
+      .nav-button {
+        font-size: 16px;
+        padding: 10px 25px;
+      }
+
+      .heart {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: cursive;
+      color: white;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+    }
+
+    .bg_heart {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: fixed;
+      top: 100%;
+      width: 30px;
+      height: 30px;
+      background-color: #ff4b5c;
+      transform: rotate(-45deg);
+      animation: love 5s linear infinite;
+      pointer-events: none;
+    }
+
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ff4b5c;
+      border-radius: 50%;
+    }
+
+    .heart:before {
+      top: -50%;
+      left: 0;
+    }
+
+    .heart:after {
+      top: 0;
+      left: 50%;
+    }
+
+    @keyframes love {
+      0% { transform: translate3d(0, 0, 0) rotate(-45deg); opacity: 1; }
+      100% { transform: translate3d(0, -100vh, 0) rotate(-45deg); opacity: 0; }
+    }
+
+    #text1 {
+      padding: 40px 20px;
+      font-size: 26px;
+      line-height: 1.8;
+      text-align: center;
+      text-shadow: 1px 1px 2px #ff69b4;
+      box-sizing: border-box;
+    }
+
+    #extra-line {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff004f;
+      text-shadow: 2px 2px 8px #fff;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #extra-line.show {
+      animation: fadeInZoom 2s ease-out forwards;
+    }
+
+    @keyframes fadeInZoom {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .nav-invite {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 30px;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .nav-invite.show {
+      opacity: 1;
+    }
+
+    .nav-button {
+      display: block;
+      margin: 20px auto;
+      padding: 14px 36px;
+      background: #ff4b5c;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 20px;
+      font-family: cursive;
+      font-weight: bold;
+      cursor: pointer;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.5s ease;
+      animation: none;
+    }
+
+    .nav-button.show {
+      animation: fadeInUp 1s ease-out forwards, pulse 1.8s infinite;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg_heart"></div>
+
+  <h1 id="text1"></h1>
+  <div id="extra-line">Oru vaathi ok solli paaren 🥺🤍💐..........✨!!!</div>
+  <div id="navInvite" class="nav-invite">Click me for the next page 💖</div>
+  <button id="navButton" class="nav-button">💌 A Special Page for You 💖</button>
+
+  <script>
+    // Floating background hearts
+    setInterval(() => {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      document.body.appendChild(heart);
+
+      let size = Math.random() * 30 + 10;
+      let left = Math.random() * 100;
+      let duration = Math.random() * 3 + 2;
+
+      heart.style.width = size + "px";
+      heart.style.height = size + "px";
+      heart.style.left = left + "%";
+      heart.style.animationDuration = duration + "s";
+
+      setTimeout(() => heart.remove(), duration * 1000);
+    }, 500);
+
+    // Typewriter effect
+    let i = 0;
+    const txt = "I never imagined that one smile 😊 could change the rhythm of my entire world 🌍 — until I met you 💖. From the first moment our paths crossed ✨, you made my heart feel something new… something real 💓. As the days passed, your presence became a soft melody 🎶 in my everyday life — sweet 🍬, calming 🌷, unforgettable 💞. I don’t know how to explain it, but you've become the reason behind my quiet smiles 😊, my deep thoughts 🤍, and my hopeful dreams 🌈. Every little thing about you — your laugh 😄, your voice 🎤, your kindness 🕊️ — feels like magic ✨ to me. And though I've never said this to anyone before, I want you to know… You've become the most beautiful part of my life 🥰. I've always loved my parents 👨‍👩‍👧 more than anything in this world — and I still do — but you, my love 💘, have found a place in my heart right beside them 🌹. I Love You, Truly 💘. Deeply 💞. Completely 💖. Just one chance... That's all I ask — to show you the kind of love 💌 that doesn't fade, doesn't falter, and only grows stronger with every heartbeat ❤️. Will you be mine? 🌸❣️";
+
+    const textElement = document.getElementById("text1");
+    const extraLine = document.getElementById("extra-line");
+    const navButton = document.getElementById("navButton");
+    const navInvite = document.getElementById("navInvite");
+
+    function typeWriter() {
+      if (i < txt.length) {
+        textElement.innerHTML += txt.charAt(i);
+        i++;
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        setTimeout(typeWriter, 120);
+      } else {
+        extraLine.classList.add("show");
+        setTimeout(() => {
+          navInvite.classList.add("show");
+          navButton.classList.add("show");
+        }, 1500);
+      }
+    }
+
+    typeWriter();
+
+    navButton.addEventListener('click', function () {
+      window.location.href = 'tamilproposalpage.html';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Page from My Heart 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+
+        @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+        margin: 3vh 10px;
+      }
+
+      .photo-circle {
+        width: 140px;
+        height: 140px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+
+      .line {
+        font-size: 22px;
+        margin: 16px 0;
+      }
+
+      .heart-bg svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 25px 15px;
+        margin: 2vh 5px;
+      }
+
+      .photo-circle {
+        width: 120px;
+        height: 120px;
+      }
+
+      .title {
+        font-size: 28px;
+      }
+
+      .line {
+        font-size: 18px;
+        margin: 14px 0;
+      }
+
+      .heart-bg svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    body {
+  margin: 0;
+  background: radial-gradient(ellipse at center, #fff0f5 0%, #ffd6e0 100%);
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; /* Only hide horizontal scroll */
+  position: relative;
+}
+
+    .heart-bg svg {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      fill: #ff4b5c;
+      opacity: 0.8;
+      animation: floatHeart 8s linear infinite;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 2vh auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 192, 203, 0.4);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: slideUp 1.5s ease;
+    }
+
+    .photo-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: url('srsp.png') no-repeat center center/cover;
+      margin: 0 auto 20px auto;
+      border: 4px solid white;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 40px;
+      color: #b30059;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px #ff99bb;
+    }
+
+    .line {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #8a033e;
+      margin: 20px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInText 1s forwards ease;
+    }
+
+    .line:nth-of-type(3) { animation-delay: 0.8s; }
+    .line:nth-of-type(4) { animation-delay: 1.6s; }
+    .line:nth-of-type(5) { animation-delay: 2.4s; }
+
+    @keyframes fadeInText {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts Background -->
+  <div class="heart-bg" id="bg_heart"></div>
+
+  <div class="container">
+    <!-- Your Photo Container -->
+    <div class="photo-circle"></div>
+    
+    <div class="title">💖 A Page from My Heart</div>
+    <div class="line">📜 ஆயிரம் குறள்கள் யான் எழுதி கேட்பினும், இனித்தது உன் குரல் மட்டுமே🎶💖</div>
+    <div class="line">🌈 கிடைப்பது நீயாக இருந்தால், இழப்பது எதுவாக இருந்தாலும் சரி! 💕✨</div>
+    <div class="line">👁️ இரு வரிகளில் அகிலத்தை அடக்கிய நான்... உமது விழிகளின் வலிமையில் 🌍💫 வரிகளை துளைத்து நிற்கின்றேன் ❤️🌹</div>
+  </div>
+
+  <script>
+    // Floating Hearts Animation
+    const bg = document.getElementById('bg_heart');
+    const heartSVG = `
+      <svg viewBox="0 0 32 29.6">
+        <path d="M23.6,0c-3.4,0-6.4,2.2-7.6,5.3C14.8,2.2,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.1,16,21.2,16,21.2s16-12.1,16-21.2
+        C32,3.8,28.2,0,23.6,0z"/>
+      </svg>`;
+
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.innerHTML = heartSVG;
+      const size = Math.random() * 20 + 10;
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.position = 'absolute';
+      heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      heart.firstChild.style.width = size + 'px';
+      heart.firstChild.style.height = size + 'px';
+      bg.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }, 400);
+  </script>
+
+</body>
+</html>
